@@ -11,8 +11,6 @@ const authUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
-    const wallet = await Wallet.findOne({ user: user._id });
-
     res.json({
       _id: user._id,
       name: user.name,
@@ -48,13 +46,12 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   // const ballance = await wallet.ballance
-  if (user && wallet) {
+  if (user) {
     res.status(201).json({
       _id: user._id,
       name: user.name,
       email: user.email,
       phoneNumber: user.phoneNumber,
-      wallet: wallet,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
     });
