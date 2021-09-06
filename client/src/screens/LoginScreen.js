@@ -39,19 +39,6 @@ const LoginScreen = ({ location, history }) => {
         <form class="login-form" onSubmit={submitHandler}>
           <div class="card mb-0">
             <div class="card-body">
-              <div class="text-center mb-3">
-                <img
-                  src="
-svme.png"
-                  alt="Save-me"
-                />
-                <br />
-                <span class="d-block text-muted">
-                  Enter your credentials below
-                </span>
-              </div>
-              <br />
-
               <div class="form-group form-group-feedback form-group-feedback-left">
                 <input
                   value={email}
