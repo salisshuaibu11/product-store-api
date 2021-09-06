@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler");
-const Product = require("../models/product");
+const Product = require("../models/productModel");
 
 // @desc    Create Product
 // @route   POST /api/product/create
