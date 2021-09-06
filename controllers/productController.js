@@ -38,6 +38,32 @@ const productCreate = asyncHandler(async (req, res) => {
   }
 });
 
+const getProducts = asyncHandler(async (req, res) => {
+  try {
+    const products = await Product.find();
+
+    if (products) {
+      let message = "";
+      if (products === undefined || products.length == 0)
+        message = "No products found!";
+      else message = "Products successfully retrieved";
+
+      res.send({
+        success: true,
+        message: message,
+        data: products,
+      });
+    }
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      message:
+        error.message || "Some error occurred while retrieving products.",
+    });
+  }
+});
+
 module.exports = {
   productCreate,
+  getProducts,
 };
